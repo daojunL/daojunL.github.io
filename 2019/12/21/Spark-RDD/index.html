@@ -46,13 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="@[TOC](Spark中的弹性分布式数据集RDD 1. 背景介绍Spark中的最基本的数据抽象就是RDD（Resilient Distributed Dataset, 弹性分布式数据集）。传统的MapReduce框架下，中间计算结果需要写入硬盘来防止运行结果丢失，而调用中间结果对硬盘进行读写是比较耗时的。RDD则是一个基于分布式内存的数据抽象，并且提供了很多计算函数。这样的特点使得Spark比M">
+  <meta name="description" content="[TOC]Spark中的弹性分布式数据集RDD 1. 背景介绍Spark中的最基本的数据抽象就是RDD（Resilient Distributed Dataset, 弹性分布式数据集）。传统的MapReduce框架下，中间计算结果需要写入硬盘来防止运行结果丢失，而调用中间结果对硬盘进行读写是比较耗时的。RDD则是一个基于分布式内存的数据抽象，并且提供了很多计算函数。这样的特点使得Spark比Map">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark RDD">
 <meta property="og:url" content="http://daojunl.github.com/2019/12/21/Spark-RDD/index.html">
 <meta property="og:site_name" content="Daojun Liang">
-<meta property="og:description" content="@[TOC](Spark中的弹性分布式数据集RDD 1. 背景介绍Spark中的最基本的数据抽象就是RDD（Resilient Distributed Dataset, 弹性分布式数据集）。传统的MapReduce框架下，中间计算结果需要写入硬盘来防止运行结果丢失，而调用中间结果对硬盘进行读写是比较耗时的。RDD则是一个基于分布式内存的数据抽象，并且提供了很多计算函数。这样的特点使得Spark比M">
+<meta property="og:description" content="[TOC]Spark中的弹性分布式数据集RDD 1. 背景介绍Spark中的最基本的数据抽象就是RDD（Resilient Distributed Dataset, 弹性分布式数据集）。传统的MapReduce框架下，中间计算结果需要写入硬盘来防止运行结果丢失，而调用中间结果对硬盘进行读写是比较耗时的。RDD则是一个基于分布式内存的数据抽象，并且提供了很多计算函数。这样的特点使得Spark比Map">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190710183100304.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpYW5nX0RK,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190711162627500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpYW5nX0RK,size_16,color_FFFFFF,t_70#pic_center=300x400">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190711164944974.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpYW5nX0RK,size_16,color_FFFFFF,t_70#pic_center=500x250">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190711165104265.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpYW5nX0RK,size_16,color_FFFFFF,t_70#pic_center=500x250">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190715110653266.png">
@@ -65,10 +67,10 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190716111147322.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190716111444666.png">
 <meta property="article:published_time" content="2019-12-21T23:24:40.000Z">
-<meta property="article:modified_time" content="2019-12-21T23:26:50.986Z">
+<meta property="article:modified_time" content="2019-12-22T23:30:50.034Z">
 <meta property="article:author" content="Daojun Liang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190711164944974.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpYW5nX0RK,size_16,color_FFFFFF,t_70#pic_center=500x250">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190710183100304.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpYW5nX0RK,size_16,color_FFFFFF,t_70">
 
 <link rel="canonical" href="http://daojunl.github.com/2019/12/21/Spark-RDD/">
 
@@ -214,10 +216,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-12-21 18:24:40 / Modified: 18:26:50" itemprop="dateCreated datePublished" datetime="2019-12-21T18:24:40-05:00">2019-12-21</time>
+              <time title="Created: 2019-12-21 18:24:40" itemprop="dateCreated datePublished" datetime="2019-12-21T18:24:40-05:00">2019-12-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-22 18:30:50" itemprop="dateModified" datetime="2019-12-22T18:30:50-05:00">2019-12-22</time>
+              </span>
 
           
 
@@ -230,17 +238,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>@[TOC](Spark中的弹性分布式数据集RDD</p>
+        <p>[TOC]Spark中的弹性分布式数据集RDD</p>
 <h2 id="1-背景介绍"><a href="#1-背景介绍" class="headerlink" title="1. 背景介绍"></a>1. 背景介绍</h2><p>Spark中的最基本的数据抽象就是RDD（Resilient Distributed Dataset, 弹性分布式数据集）。传统的MapReduce框架下，中间计算结果需要写入硬盘来防止运行结果丢失，而调用中间结果对硬盘进行读写是比较耗时的。RDD则是一个基于分布式内存的数据抽象，并且提供了很多计算函数。这样的特点使得Spark比MapReduce快很多。</p>
 <h2 id="2-RDD的定义"><a href="#2-RDD的定义" class="headerlink" title="2. RDD的定义"></a>2. RDD的定义</h2><p>RDD表示<strong>已被分区、不可变的，并能够被并行操作的数据集合</strong></p>
 <p><strong>分区</strong></p>
 <p>分区代表同一个RDD包含的数据被存储在系统的不同节点中，这是它可以被并行处理的前提。</p>
 <p>逻辑上，我们可以认为RDD是一个大的数组，数组的每一个元素代表一个分区。在物理存储中，每个分区指向一个存放在内存或者硬盘中的数据块，这些数据块可以被存放在系统中的不同节点。实际上，RDD只是抽象意义的数据集合，分区内部不会存储具体的数据。</p>
-<p>下图给出RDD的分区逻辑结构：<br>![RDD的分区逻辑结构](<a href="https://img-blog.csdnimg.cn/20190710183100304.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpYW5nX0RK,size_16,color_FFFFFF,t_70#pic_center" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20190710183100304.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpYW5nX0RK,size_16,color_FFFFFF,t_70#pic_center</a> =500x250)<br>RDD的分区存有数据块的index，通过RDD的ID和分区的index可以唯一确定数据块的编号，来取得相应数据。</p>
+<p>下图给出RDD的分区逻辑结构：<br><img src="https://img-blog.csdnimg.cn/20190710183100304.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpYW5nX0RK,size_16,color_FFFFFF,t_70" alt="RDD的分区逻辑结构"><br>RDD的分区存有数据块的index，通过RDD的ID和分区的index可以唯一确定数据块的编号，来取得相应数据。</p>
 <p>在集群中，各个节点上的数据块会尽可能地放在内存中，内存没有空间才会存入硬盘，这样可以最大化地减少I/O操作。</p>
 <p><strong>不可变性</strong><br>不可变性代表每个一RDD都是可读的，它所包含的分区信息不可以被改变。</p>
 <p><strong>并行操作</strong><br>由于单个RDD的分区特性，使得它天然支持并行操作。</p>
-<h2 id="3-RDD的结构"><a href="#3-RDD的结构" class="headerlink" title="3. RDD的结构"></a>3. RDD的结构</h2><p>以下是一个RDD的简易结构示意图：<br>![RDD的结构简单示意图](<a href="https://img-blog.csdnimg.cn/20190711162627500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpYW5nX0RK,size_16,color_FFFFFF,t_70#pic_center" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20190711162627500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpYW5nX0RK,size_16,color_FFFFFF,t_70#pic_center</a> =300x400)<br>SparkContext是所有Spark功能的入口，它代表了与Spark节点的连接，可以用来创建RDD对象以及在节点中的广播变量等。一个线程只有一个SparkContext。</p>
+<h2 id="3-RDD的结构"><a href="#3-RDD的结构" class="headerlink" title="3. RDD的结构"></a>3. RDD的结构</h2><p>以下是一个RDD的简易结构示意图：<br><img src="https://img-blog.csdnimg.cn/20190711162627500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpYW5nX0RK,size_16,color_FFFFFF,t_70#pic_center=300x400" alt="RDD的结构简单示意图"><br>SparkContext是所有Spark功能的入口，它代表了与Spark节点的连接，可以用来创建RDD对象以及在节点中的广播变量等。一个线程只有一个SparkContext。</p>
 <p>SparkConf则是一些参数配置信息。</p>
 <p>Partitioner代表了RDD中数据的逻辑结构，每个Partition会映射到某个节点或硬盘的一个数据块。Partitioner决定了RDD的分区方式。有两种主流分区方式：Hash partitioner、Range partitioner。Hash是对数据的Key进行散列分区，Range则是按照Key的排序进行均匀分区。也可以创建自定义的Partitioner。</p>
 <p>Dependencies叫做依赖关系。Spark不需要将每个中间计算结果进行数据复制以防丢失。因为每一步产生的RDD里都会存储它的依赖关系，即它是通过哪个RDD经过哪个转换得到的。Spark支持两种依赖关系：窄依赖（Narrow Dependency）和宽依赖（Wide Dependency）。</p>
@@ -291,15 +299,11 @@
 <li>MEMORY_AND_DISK：缓存在内存中，空间不够则缓存在硬盘中。</li>
 <li>DISK_ONLY：只缓存在硬盘中。</li>
 </ul>
-<p>注：有时在持久化级别加上“_2”表示把持久化的数据存在两个节点上建立副本。如：MEMORY_ONLY_2。</p>
-<p><strong>persist操作</strong></p>
+<p>注：有时在持久化级别加上“_2”表示把持久化的数据存在两个节点上建立副本。如：MEMORY_ONLY_2。<br><strong>persist操作</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val rdd &#x3D; sc.parallelize(List(1,2,3,3))</span><br><span class="line">rdd.persist()</span><br></pre></td></tr></table></figure>
-
 <p>加上存储级别示例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val rdd &#x3D; sc.parallelize(List(1,2,3,3))</span><br><span class="line">rdd.persist(rdd.persist(StorageLevel.DISK_ONLY))</span><br></pre></td></tr></table></figure>
-
-<p>注：unpersist()可以删除持久化。</p>
-<p><strong>参考资料：</strong><br>【1】《Spark快速大数据分析》<br>【2】 极客时间课程——《大规模数据处理实战》<br>【3】 <a href="https://blog.csdn.net/mingWar/article/details/79643126" target="_blank" rel="noopener">https://blog.csdn.net/mingWar/article/details/79643126</a></p>
+<p>注：unpersist()可以删除持久化。<br><strong>参考资料：</strong><br>【1】《Spark快速大数据分析》<br>【2】 极客时间课程——《大规模数据处理实战》<br>【3】 <a href="https://blog.csdn.net/mingWar/article/details/79643126" target="_blank" rel="noopener">https://blog.csdn.net/mingWar/article/details/79643126</a></p>
 
     </div>
 
