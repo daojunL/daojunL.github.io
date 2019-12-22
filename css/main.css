@@ -1132,7 +1132,6 @@ pre .javascript .function {
   margin: 0 auto;
   max-width: 120px;
   padding: 2px;
-  border-radius: 50%;
 }
 .site-author-name {
   color: #222;
@@ -1160,7 +1159,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #2054f0;
+  background: #ff59f0;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
