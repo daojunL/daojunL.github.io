@@ -46,16 +46,16 @@
   };
 </script>
 
-  <meta name="description" content="应用场景(Scenario)现实中很多业务都有生成唯一ID的需求，例如：  用户ID 微博ID 聊天消息ID 帖子ID 订单ID需求(Needs)这个ID往往会作为数据库主键，所以需要保证全局唯一。数据库会在这个字段上建立聚集索引(Clustered Index，参考 MySQL InnoDB)，即该字段会影响各条数据再物理存储上的顺序。  ID还要尽可能短，节省内存，让数据库索引效率更高。基本上">
+  <meta name="description" content="应用场景(Scenario)现实中很多业务都有生成唯一ID的需求，例如：  用户ID 微博ID 聊天消息ID 帖子ID 订单ID  需求(Needs)这个ID往往会作为数据库主键，所以需要保证全局唯一。数据库会在这个字段上建立聚集索引(Clustered Index，参考 MySQL InnoDB)，即该字段会影响各条数据再物理存储上的顺序。 ID还要尽可能短，节省内存，让数据库索引效率更高。基本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="系统设计题：如何设计一个分布式ID生成器(Distributed ID Generator)?">
 <meta property="og:url" content="http://daojunl.github.com/2019/12/21/Design%20A%20Distributed%20Random%20ID%20Generator/index.html">
 <meta property="og:site_name" content="Daojun Liang">
-<meta property="og:description" content="应用场景(Scenario)现实中很多业务都有生成唯一ID的需求，例如：  用户ID 微博ID 聊天消息ID 帖子ID 订单ID需求(Needs)这个ID往往会作为数据库主键，所以需要保证全局唯一。数据库会在这个字段上建立聚集索引(Clustered Index，参考 MySQL InnoDB)，即该字段会影响各条数据再物理存储上的顺序。  ID还要尽可能短，节省内存，让数据库索引效率更高。基本上">
+<meta property="og:description" content="应用场景(Scenario)现实中很多业务都有生成唯一ID的需求，例如：  用户ID 微博ID 聊天消息ID 帖子ID 订单ID  需求(Needs)这个ID往往会作为数据库主键，所以需要保证全局唯一。数据库会在这个字段上建立聚集索引(Clustered Index，参考 MySQL InnoDB)，即该字段会影响各条数据再物理存储上的顺序。 ID还要尽可能短，节省内存，让数据库索引效率更高。基本">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191218133845360.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpYW5nX0RK,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2019-12-21T21:33:43.000Z">
-<meta property="article:modified_time" content="2019-12-22T23:55:21.259Z">
+<meta property="article:modified_time" content="2019-12-23T00:01:52.822Z">
 <meta property="article:author" content="Daojun Liang">
 <meta property="article:tag" content="Distributed ID">
 <meta name="twitter:card" content="summary">
@@ -146,6 +146,11 @@
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
         <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
@@ -213,7 +218,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-22 18:55:21" itemprop="dateModified" datetime="2019-12-22T18:55:21-05:00">2019-12-22</time>
+                <time title="Modified: 2019-12-22 19:01:52" itemprop="dateModified" datetime="2019-12-22T19:01:52-05:00">2019-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,8 +249,9 @@
 <li>微博ID</li>
 <li>聊天消息ID</li>
 <li>帖子ID</li>
-<li>订单ID<h4 id="需求-Needs"><a href="#需求-Needs" class="headerlink" title="需求(Needs)"></a>需求(Needs)</h4>这个ID往往会作为数据库主键，所以需要保证全局唯一。数据库会在这个字段上建立聚集索引(Clustered Index，参考 MySQL InnoDB)，即该字段会影响各条数据再物理存储上的顺序。</li>
+<li>订单ID</li>
 </ul>
+<h4 id="需求-Needs"><a href="#需求-Needs" class="headerlink" title="需求(Needs)"></a>需求(Needs)</h4><p>这个ID往往会作为数据库主键，所以需要保证全局唯一。数据库会在这个字段上建立聚集索引(Clustered Index，参考 MySQL InnoDB)，即该字段会影响各条数据再物理存储上的顺序。</p>
 <p>ID还要尽可能短，节省内存，让数据库索引效率更高。基本上64位整数能够满足绝大多数的场景，但是如果能做到比64位更短那就更好了。需要根据具体业务进行分析，预估出ID的最大值，这个最大值通常比64位整数的上限小很多，于是我们可以用更少的bit表示这个ID。</p>
 <p>查询的时候，往往有分页或者排序的需求，所以需要给每条数据添加一个时间字段，并在其上建立普通索引(Secondary Index)。但是普通索引的访问效率比聚集索引慢，如果能够让ID按照时间粗略有序，则可以省去这个时间字段。为什么不是按照时间精确有序呢？因为按照时间精确有序是做不到的，除非用一个单机算法，在分布式场景下做到精确有序性能一般很差。<br>这就引出了ID生成的三大核心需求：</p>
 <ul>
@@ -337,6 +343,13 @@
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/11/03/life%20needs%20transcendent%20moments/" rel="prev" title="life needs transcendent moments">
+      <i class="fa fa-chevron-left"></i> life needs transcendent moments
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
     
   </article>
@@ -411,19 +424,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+          
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

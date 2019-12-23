@@ -139,6 +139,11 @@
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
         <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
@@ -207,7 +212,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-22 18:55:21" itemprop="dateModified" datetime="2019-12-22T18:55:21-05:00">2019-12-22</time>
+                <time title="Modified: 2019-12-22 19:01:52" itemprop="dateModified" datetime="2019-12-22T19:01:52-05:00">2019-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -238,8 +243,9 @@
 <li>微博ID</li>
 <li>聊天消息ID</li>
 <li>帖子ID</li>
-<li>订单ID<h4 id="需求-Needs"><a href="#需求-Needs" class="headerlink" title="需求(Needs)"></a>需求(Needs)</h4>这个ID往往会作为数据库主键，所以需要保证全局唯一。数据库会在这个字段上建立聚集索引(Clustered Index，参考 MySQL InnoDB)，即该字段会影响各条数据再物理存储上的顺序。</li>
+<li>订单ID</li>
 </ul>
+<h4 id="需求-Needs"><a href="#需求-Needs" class="headerlink" title="需求(Needs)"></a>需求(Needs)</h4><p>这个ID往往会作为数据库主键，所以需要保证全局唯一。数据库会在这个字段上建立聚集索引(Clustered Index，参考 MySQL InnoDB)，即该字段会影响各条数据再物理存储上的顺序。</p>
 <p>ID还要尽可能短，节省内存，让数据库索引效率更高。基本上64位整数能够满足绝大多数的场景，但是如果能做到比64位更短那就更好了。需要根据具体业务进行分析，预估出ID的最大值，这个最大值通常比64位整数的上限小很多，于是我们可以用更少的bit表示这个ID。</p>
 <p>查询的时候，往往有分页或者排序的需求，所以需要给每条数据添加一个时间字段，并在其上建立普通索引(Secondary Index)。但是普通索引的访问效率比聚集索引慢，如果能够让ID按照时间粗略有序，则可以省去这个时间字段。为什么不是按照时间精确有序呢？因为按照时间精确有序是做不到的，除非用一个单机算法，在分布式场景下做到精确有序性能一般很差。<br>这就引出了ID生成的三大核心需求：</p>
 <ul>
@@ -330,6 +336,84 @@
   
   
 
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://daojunl.github.com/2019/11/03/life%20needs%20transcendent%20moments/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Daojun Liang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daojun Liang">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/03/life%20needs%20transcendent%20moments/" class="post-title-link" itemprop="url">life needs transcendent moments</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-03 19:45:46" itemprop="dateCreated datePublished" datetime="2019-11-03T19:45:46-05:00">2019-11-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-22 19:52:01" itemprop="dateModified" datetime="2019-12-22T19:52:01-05:00">2019-12-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/thoughts-about-life/" itemprop="url" rel="index">
+                    <span itemprop="name">thoughts about life</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>前阵子听了一个Ted Talk，围绕着大概是找寻人生的意义这个话题。具体内容我大多都忘记了，唯独记得住了一点，就是生命中需要一些transcendent moments。这点我印象很深，一方面是因为这个观点很新颖，一方面是因为这个观点很深刻。就在刚刚，我在看一个演唱视频。舞台不是特别大，光线打得很好，所有观众在旁边非常享受地一起跟着唱或者摇摆，我在那一刻突然想到了这个transcendent moments的观点。尽管我不在现场，但是我确确实实感受到对于这些在舞台上的艺人来说，在舞台上的时刻就是他们人生的transcendent moments。那是一种诗意的、浪漫的、含蓄的又直接的表达自己的方式，也是一种深层次的心灵交流的时刻。正因为如此，无数人会被舞台上表演的艺人们touch到。而我，也常常被这些transcendent moments感动到。尽管自己不是那种会在舞台上表演的艺人，但是我也在追求我人生的transcendent moments. That’s important to me. 其实，我想对很多人这点都重要。</p>
+<p>其实，细细回想我走到今天也很不容易。尽管自己不是最出色的那个，一路过来也算没有放弃自己。只是现在，不断告诫自己需要更加努力，因为既然想追求人生的transcendent moments，这必然是不容易的。拿回舞台上的艺人来讲，为了几分钟的完整表演，常常准备很久，熬夜也是常事。</p>
+<p>当然，现在自己还有很多东西做得不够，but I’m still growing. I am grateful for what I have now.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
   </div>
 
   
@@ -399,19 +483,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+          
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
