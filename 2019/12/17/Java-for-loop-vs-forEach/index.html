@@ -46,16 +46,16 @@
   };
 </script>
 
-  <meta name="description" content="在做leetcode的题目的时候，发现了有人用for(E e)去遍历数组的值，但是这种方法在经过我试验后却并不如for(int i &#x3D; 0; i &lt; len; i++) arr[i]快，于是就研究了一下for循环和for each的差别，顺便复习了一下java中容器的知识。所以这篇文章先理清一些关于Java中容器的知识，然后再分析for each和for循环的差别。 java中为什么会有容器">
+  <meta name="description" content="在做leetcode的题目的时候，发现了有人用for(E e)去遍历数组的值，但是这种方法在经过我试验后却并不如for(int i &#x3D; 0; i &lt; len; i++) arr[i]快，于是就研究了一下for循环和for each的差别，顺便复习了一下java中容器的知识。所以这篇文章先理清一些关于Java中容器的知识，然后再分析for each和for循环的差别。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java: for loop vs forEach">
 <meta property="og:url" content="http://daojunl.github.com/2019/12/17/Java-for-loop-vs-forEach/index.html">
 <meta property="og:site_name" content="Daojun Liang">
-<meta property="og:description" content="在做leetcode的题目的时候，发现了有人用for(E e)去遍历数组的值，但是这种方法在经过我试验后却并不如for(int i &#x3D; 0; i &lt; len; i++) arr[i]快，于是就研究了一下for循环和for each的差别，顺便复习了一下java中容器的知识。所以这篇文章先理清一些关于Java中容器的知识，然后再分析for each和for循环的差别。 java中为什么会有容器">
+<meta property="og:description" content="在做leetcode的题目的时候，发现了有人用for(E e)去遍历数组的值，但是这种方法在经过我试验后却并不如for(int i &#x3D; 0; i &lt; len; i++) arr[i]快，于是就研究了一下for循环和for each的差别，顺便复习了一下java中容器的知识。所以这篇文章先理清一些关于Java中容器的知识，然后再分析for each和for循环的差别。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191217140555366.png">
 <meta property="article:published_time" content="2019-12-17T16:46:01.000Z">
-<meta property="article:modified_time" content="2019-12-25T17:16:37.477Z">
+<meta property="article:modified_time" content="2020-01-30T00:51:54.751Z">
 <meta property="article:author" content="Daojun Liang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20191217140555366.png">
@@ -218,7 +218,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-25 12:16:37" itemprop="dateModified" datetime="2019-12-25T12:16:37-05:00">2019-12-25</time>
+                <time title="Modified: 2020-01-29 19:51:54" itemprop="dateModified" datetime="2020-01-29T19:51:54-05:00">2020-01-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,6 +244,8 @@
 
       
         <p>在做leetcode的题目的时候，发现了有人用for(E e)去遍历数组的值，但是这种方法在经过我试验后却并不如for(int i = 0; i &lt; len; i++) arr[i]快，于是就研究了一下for循环和for each的差别，顺便复习了一下java中容器的知识。所以这篇文章先理清一些关于Java中容器的知识，然后再分析for each和for循环的差别。</p>
+<a id="more"></a>
+
 <h5 id="java中为什么会有容器的存在？"><a href="#java中为什么会有容器的存在？" class="headerlink" title="java中为什么会有容器的存在？"></a>java中为什么会有容器的存在？</h5><p>容器的主要作用还是用来保存对象，但是数组保存对象限制比较多，比如数组是固定尺寸的，添加和删除元素都会比较麻烦，而且数组只能保存基本数据类型，所以引入容器的概念。</p>
 <h5 id="容器归纳"><a href="#容器归纳" class="headerlink" title="容器归纳"></a>容器归纳</h5><p>java中的容器分为collection和map两类。而Collection又分Set, List, Queue。具体可以见下图。值得提一句，Collection的父类是Iterable，而Iterable定义了forEach, iterator()的方法。</p>
  <img src="https://img-blog.csdnimg.cn/20191217140555366.png" width = "570" height = "380" alt="collection归纳" align=center/>
@@ -359,7 +361,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

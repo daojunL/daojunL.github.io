@@ -182,6 +182,83 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://daojunl.github.com/2020/01/29/%E4%BB%80%E4%B9%88%E6%98%AFlegacy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Daojun Liang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daojun Liang">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/29/%E4%BB%80%E4%B9%88%E6%98%AFlegacy/" class="post-title-link" itemprop="url">什么是legacy</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-29 19:48:15 / Modified: 19:52:52" itemprop="dateCreated datePublished" datetime="2020-01-29T19:48:15-05:00">2020-01-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Life-Thoughts/" itemprop="url" rel="index">
+                    <span itemprop="name">Life Thoughts</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>西方人很多会说留下自己的legacy，那什么是legacy？我查过这个词的含义，其中一个比较直接的翻译是遗产。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/01/29/%E4%BB%80%E4%B9%88%E6%98%AFlegacy/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://daojunl.github.com/2020/01/08/Binary-Search/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -213,7 +290,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-21 20:03:14" itemprop="dateModified" datetime="2020-01-21T20:03:14-05:00">2020-01-21</time>
+                <time title="Modified: 2020-01-29 19:50:50" itemprop="dateModified" datetime="2020-01-29T19:50:50-05:00">2020-01-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,137 +316,14 @@
 
       
           <p>本文将对二分查找算法进行详细的归纳，并对LeetCode上出现的一些相关的题目进行归纳。</p>
-<h2 id="什么是二分查找"><a href="#什么是二分查找" class="headerlink" title="什么是二分查找"></a>什么是二分查找</h2><p>二分查找针对的是一个<strong>有序</strong>的数据集合，查找思想有点类似分治思想。每次都通过跟区间的中间元素对比，将待查找的区间缩小为之前的一半，直到找到要查找的元素，或者区间被缩小为0。举个例子，当我们猜一件衣服的价格，如果被告知价格区间在500到1000之间，我们第一次可能会猜价格为750，如果750低了，我们会往比750高的价格猜，比如875，如果875高了，我们下一次猜的价格就可以是（750 + 875）/ 2 = 812，依次猜下去，直到猜到正确价格。</p>
-<p>二分查找的时间复杂度是O(logn), 因为每次查找后数据区间都会缩小为原来的一半，所以二分查找是一种十分高效的查找算法。有时候比O(1)的算法还要高效。因为有些O(1)的算法可能表示的是一个非常大的常数值。</p>
-<h2 id="一个最简单的二分查找"><a href="#一个最简单的二分查找" class="headerlink" title="一个最简单的二分查找"></a>一个最简单的二分查找</h2><p>最简单的二分查找算法就是针对不存在重复元素的有序数组。以下给出其递归实现和非递归实现的Java代码。</p>
-<p><strong>非递归实现</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">bsearch</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> n, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> high = n - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(low &lt; = high) &#123;</span><br><span class="line">		<span class="keyword">int</span> mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(a[mid] == value) &#123;</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a[mid] &lt; value) &#123;</span><br><span class="line">			low = mid + <span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			high = mid - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上述代码要注意的地方</p>
-<ol>
-<li>循环退出条件</li>
-</ol>
-<p>这里的循环退出条件是low &lt;= high, 而不是low &lt; high。如果写 low &lt; high, 举个例子，当 a = [2, 4, 5, 6, 7, 8, 9], value = 2时，刚开始low = 0, high = 6, mid = 3, 由于 a[3] = 6 &gt; value, high 更新为 3 - 1 = 2, mid 更新为 （2 + 0）/ 2 = 1, 由于a[1] = 4 &gt; value, 所以 high 更新为 1 - 1 = 0， 此时如果循环退出条件是 low &lt; high, 那么 a[0] = 2 就没有被检查到。</p>
-<ol start="2">
-<li>mid的取值</li>
-</ol>
-<p>mid = (low + high) / 2 这种写法其实并不是很好，如果low和high都比较大的时候，两者之和可能会溢出，这里可以改进写法为 mid = low + ((high - low) &gt;&gt; 1); 因为计算机处理位运算要更比除法运算更快一点。</p>
-<ol start="3">
-<li>low = mid + 1 &amp; high = mid - 1;</li>
-</ol>
-<p>如果代码中直接写 low = mid 或者 high = mid， 可能会发生死循环，比如，high = low = 3, 而且 a[3] != value，low和high就会一直等于3，这样就会导致循环无法退出。</p>
-<p><strong>递归实现</strong></p>
-<p>和非递归实现差不多，递归实现的代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 二分查找的递归实现</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">bsearch</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> n, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> bsearchInternally(a, <span class="number">0</span>, n - <span class="number">1</span>, val);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">bsearchInternally</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> low, <span class="keyword">int</span> high, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (low &gt; high) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> mid =  low + ((high - low) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (a[mid] == value) &#123;</span><br><span class="line">        <span class="keyword">return</span> mid;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a[mid] &lt; value) &#123;</span><br><span class="line">        <span class="keyword">return</span> bsearchInternally(a, mid+<span class="number">1</span>, high, value);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bsearchInternally(a, low, mid-<span class="number">1</span>, value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="二分查找的适用情况"><a href="#二分查找的适用情况" class="headerlink" title="二分查找的适用情况"></a>二分查找的适用情况</h2><p>虽然二分查找算法的时间复杂度是O(logn), 但是二分查找只适合在一定的场景下使用。</p>
-<ul>
-<li>二分查找依赖的顺序表结构</li>
-</ul>
-<p>针对java，就是数组，或者基于数组的容器ArrayList,因为二分查找需要按照下标随机访问元素，如果二分查找依赖的是其他数据结构，比如链表，链表访问一个元素需要traverse the whole list，其时间复杂度是O(n)，数据如果用链表存储，其对应的二分查找的时间复杂度会非常高。</p>
-<ul>
-<li>二分查找针对的是有序数组</li>
-</ul>
-<p>数据必须是有序的，如果数据是无须的，要使用二分查找之前我们还需要先排序，而排序的时间度最低是O(nlogn)，所以对于我们要使用的数据，最好没有频繁的插入和删除操作，如果有，每次插入和删除操作之后，由于还需要排序，其时间复杂度会比较高。</p>
-<ul>
-<li>数据量太小不适合二分查找</li>
-</ul>
-<p>数据量太小，直接顺序遍历就好，比如 n = 10 时。数据量比较大，二分查找的优势才会比较明显。</p>
-<p>不过，这里有一个例外。如果数据之间的比较操作非常耗时，不管数据量大小，我都推荐使用二分查找。比如，数组中存储的都是长度超过 300 的字符串，如此长的两个字符串之间比对大小，就会非常耗时。我们需要尽可能地减少比较次数，而比较次数的减少会大大提高性能，这个时候二分查找就比顺序遍历更有优势。</p>
-<ul>
-<li>数据量太大也不适合二分查找</li>
-</ul>
-<p>二分查找的底层需要依赖数组这种数据结构，而数组为了支持随机访问的特性，要求内存空间连续，对内存的要求比较苛刻。如果我们没有那么大的连续内存空间，那么就不适合用二分查找。</p>
-<h2 id="二分查找的变形题目"><a href="#二分查找的变形题目" class="headerlink" title="二分查找的变形题目"></a>二分查找的变形题目</h2><p>二分查找有许多变形题目，本文将归纳一些常见的二分查找变形题目。</p>
-<h3 id="变形1-查找第一个值等于给定值的元素"><a href="#变形1-查找第一个值等于给定值的元素" class="headerlink" title="变形1: 查找第一个值等于给定值的元素"></a>变形1: 查找第一个值等于给定值的元素</h3><p>直接上代码，如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">bsearch</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> n, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = n - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">        <span class="keyword">int</span> mid =  low + ((high - low) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (a[mid] &gt; value) &#123;</span><br><span class="line">            high = mid - <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a[mid] &lt; value) &#123;</span><br><span class="line">            low = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> ((mid == <span class="number">0</span>) || (a[mid - <span class="number">1</span>] != value)) <span class="keyword">return</span> mid;</span><br><span class="line">            <span class="keyword">else</span> high = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">// if not finding value in a, return -1.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对上述代码的解释如下：</p>
-<p>a[mid] 跟要查找的 value 的大小关系有三种情况：大于、小于、等于。对于 a[mid]&gt;value 的情况，我们需要更新 high= mid-1；对于 a[mid]&lt; value 的情况，我们需要更新low=mid+1。 这两点都很好理解。那当 a[mid]=value 的时候应该如何处理呢？如果我们查找的是任意一个值等于给定值的元素，当 a[mid] 等于要查找的值时，a[mid] 就是我们要找的元素。但是，如果我们求解的是第一个值等于给定值的元素，当a[mid] 等于要查找的值时，我们就需要确认一下这个 a[mid] 是不是第一个值等于给定值的元素。我们重点看第 11 行代码。如果 mid 等于 0，那这个元素已经是数组的第一个元素，那它肯定是我们要找的；如果 mid 不等于 0，但 a[mid] 的前一个元素 a[mid-1] 不等于 value，那也说明 a[mid] 就是我们要找的第一个值等于给定值的元素。如果经过检查之后发现 a[mid] 前面的一个元素 a[mid-1] 也等于 value，那说明此时的 a[mid] 肯定不是我们要查找的第一个值等于给定值的元素。那我们就更新high = mid-1，因为要找的元素肯定出现在 [low, mid-1] 之间。</p>
-<h3 id="变形2：-查找最后一个值等于给定值的元素"><a href="#变形2：-查找最后一个值等于给定值的元素" class="headerlink" title="变形2： 查找最后一个值等于给定值的元素"></a>变形2： 查找最后一个值等于给定值的元素</h3><p>和变形1原理类似，这里直接贴代码了。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">bsearch</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> n, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = n - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">        <span class="keyword">int</span> mid =  low + ((high - low) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (a[mid] &gt; value) &#123;</span><br><span class="line">            high = mid - <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a[mid] &lt; value) &#123;</span><br><span class="line">            low = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> ((mid == n - <span class="number">1</span>) || (a[mid + <span class="number">1</span>] != value)) <span class="keyword">return</span> mid;</span><br><span class="line">            <span class="keyword">else</span> low = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="变形3-查找第一个大于等于给定值的元素"><a href="#变形3-查找第一个大于等于给定值的元素" class="headerlink" title="变形3: 查找第一个大于等于给定值的元素"></a>变形3: 查找第一个大于等于给定值的元素</h3><p>变形3和变形1、2略微有点点不同，但整体还是差不多的，这里也直接贴代码。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">bsearch</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> n, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> low =  <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> high = n - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(low &lt;= high&gt;) &#123;</span><br><span class="line">		<span class="keyword">int</span> mid = low + ((high - low) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span>(a[mid] &lt; value) &#123;</span><br><span class="line">			low = mid + <span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span>(mid == <span class="number">0</span> || a[mid-<span class="number">1</span>] &lt; value) <span class="keyword">return</span> mid;</span><br><span class="line">			<span class="keyword">else</span> high = mid  - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="变形4-查找最后一个小于等于给定值的元素"><a href="#变形4-查找最后一个小于等于给定值的元素" class="headerlink" title="变形4: 查找最后一个小于等于给定值的元素"></a>变形4: 查找最后一个小于等于给定值的元素</h3><p>代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">bsearch</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> n, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> high = n - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(low &lt;= high) &#123;</span><br><span class="line">		<span class="keyword">int</span> mid = low + ((high - low) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span>(a[mid] &gt; value) &#123;</span><br><span class="line">			high = mid - <span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span>(mid == n-<span class="number">1</span> || a[mid + <span class="number">1</span>] &gt; value) <span class="keyword">return</span> mid;</span><br><span class="line">			<span class="keyword">else</span> low = mid + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="LeetCode上相关的题目"><a href="#LeetCode上相关的题目" class="headerlink" title="LeetCode上相关的题目"></a>LeetCode上相关的题目</h2><ul>
-<li>704 </li>
-<li>35</li>
-<li>981</li>
-</ul>
-<p>下面四道题目全针对rotated sorted array</p>
-<ul>
-<li>33 </li>
-<li>81</li>
-<li>153</li>
-<li>154</li>
-</ul>
-<p><strong>最基本的二分查找题目</strong></p>
-<ol start="704">
-<li><a href="https://leetcode.com/problems/binary-search/" target="_blank" rel="noopener">Binary Search</a> </li>
-</ol>
-<p><strong>704的衍生题</strong></p>
-<ol start="35">
-<li><a href="https://leetcode.com/problems/search-insert-position/" target="_blank" rel="noopener">Search Insert Position</a></li>
-</ol>
-<p>这题表明二分查找一个特点：如果target value没有出现在要查找的数组之中，然后要把这个值插入到数组中，插入的位置是最后跳出循环的low的值，可以用如下的逻辑来大致推理一下：</p>
-<p>如果要找的数字是4, 数组中只有3和5,而没有4,最后low和high两个指针要退出循环之前要么同时指向3, 要么指向5, 如果是指向3, 那么此时mid = low = high, a[mid]会等于3 &lt; 4, 下一次循环low指针会加1，也就是4要插入的位置。如果退出循环之前low和high同时指向5, 那么此时mid = low = high, a[mid]会等于5 &gt; 4, 下一次循环high指针会减1, low指针位置不变，low指针还是4要插入的位置。</p>
-<p><strong>变形4加class设计拓展(结合HashMap)</strong></p>
-<ol start="981">
-<li><a href="https://leetcode.com/problems/time-based-key-value-store/" target="_blank" rel="noopener">Time Based Key-Value Store</a></li>
-</ol>
-<p>代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Data</span></span>&#123;</span><br><span class="line">    String value;</span><br><span class="line">    <span class="keyword">int</span> timestamp;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Data</span><span class="params">(String value, <span class="keyword">int</span> timestamp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = value;</span><br><span class="line">        <span class="keyword">this</span>.timestamp = timestamp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TimeMap</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    Map&lt;String, List&lt;Data&gt;&gt; map;</span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TimeMap</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       map = <span class="keyword">new</span> HashMap&lt;String, List&lt;Data&gt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(String key, String value, <span class="keyword">int</span> timestamp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!map.containsKey(key)) map.put(key, <span class="keyword">new</span> ArrayList&lt;Data&gt;());</span><br><span class="line">        map.get(key).add(<span class="keyword">new</span> Data(value, timestamp));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String key, <span class="keyword">int</span> timestamp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> binarySearch(map.get(key), timestamp);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">binarySearch</span><span class="params">(List&lt;Data&gt; list, <span class="keyword">int</span> timestamp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = list.size()-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(low &lt;= high) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low + ((high - low) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(list.get(mid).timestamp &lt;= timestamp)&#123;</span><br><span class="line">                <span class="keyword">if</span>(mid == list.size()-<span class="number">1</span> || list.get(mid+<span class="number">1</span>).timestamp &gt; timestamp)&#123;</span><br><span class="line">                    <span class="keyword">return</span> list.get(mid).value;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                high = low - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>针对rotated sorted array的二分查找(比较灵活，也容易出错)</strong></p>
-<ol start="33">
-<li><a href="https://leetcode.com/problems/search-in-rotated-sorted-array/" target="_blank" rel="noopener">Search in Rotated Sorted Array</a></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = nums.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(low &lt;= high) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low + ((high - low) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] == target) <span class="keyword">return</span> mid;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span>(nums[low] &lt;= nums[mid]) &#123; </span><br><span class="line">                <span class="keyword">if</span>(nums[low] &lt;= target &amp;&amp; target &lt; nums[mid]) &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[mid] &lt; target &amp;&amp; target &lt;= nums[high]) &#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;                                           </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>33的变形题，考虑到重复元素的出现</strong></p>
-<ol start="81">
-<li><a href="https://leetcode.com/problems/search-in-rotated-sorted-array-ii/" target="_blank" rel="noopener">Search in Rotated Sorted Array II</a></li>
-</ol>
-<p>代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// In worst case, the time complexity of this algorithm is O(n),</span></span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(low &lt;= high) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low +((high - low) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] == target) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(nums[low] &lt; nums[mid]) &#123;</span><br><span class="line">                <span class="keyword">if</span>(target &gt;= nums[low] &amp;&amp; target &lt; nums[mid]) &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[low] &gt; nums[mid]) &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[mid] &lt; target &amp;&amp; target &lt;= nums[high]) &#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//dealing with duplicates, we know nums[mid] != target, so nums[start] != target</span></span><br><span class="line">                <span class="comment">//based on current information, we can only move left pointer to skip one cell</span></span><br><span class="line">                <span class="comment">//thus in the worest case, we would have target: 2, and array like 11111111, then</span></span><br><span class="line">                <span class="comment">//the running time would be O(n)</span></span><br><span class="line">                low ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>主要注意如何处理duplicate elements那一块。而且要注意的是在最坏的情况下，即如果数组nums中的所有元素都相同的时候，算法的时间复杂度退化到O(n)。</p>
-<p><strong>33的变形题，要找rotated sorted array中最小的数，数组中没有重复元素的出现</strong></p>
-<ol start="153">
-<li><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/" target="_blank" rel="noopener">Find Minimum in Rotated Sorted Array</a></li>
-</ol>
-<p>代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[low] &lt; nums[high]) <span class="keyword">return</span> nums[low]; </span><br><span class="line">            <span class="comment">//上面这一行不可少，少了的话，下面nums[mid] == nums[low]时，可能会出错，而且有了这一行的检查在low到high之间的数据已经有序时，就可以返回最小值而不需要继续循环。</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> mid = low + ((high - low) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt;= nums[low]) &#123;</span><br><span class="line">                low = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[low];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意这题，之前所有题目循环退出条件都是while(low &lt;= high), 这一题是while(low &lt; high)。如果写的是while(low &lt;= high), 那么最后return的是nums[low-1]。有点绕，还不如上面代码的写法。</p>
-<p>这道题再变形一下，可以找到maximum in rotated sorted array. 代码应该如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[low] &lt; nums[high]) <span class="keyword">return</span> nums[high]; </span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> mid = low + ((high - low) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt;= nums[low]) &#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                high = mid-<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[low];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>153的变形题，要找rotated sorted array中最小的数，数组中有重复元素</strong></p>
-<ol start="154">
-<li><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/" target="_blank" rel="noopener">Find Minimum in Rotated Sorted Array II</a></li>
-</ol>
-<p>我第一次的做法，状态AC</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low +((high - low) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; nums[high]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &gt; nums[high]) &#123;</span><br><span class="line">                low = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                high--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[low];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这个做法是在看153的题目的解答看到答案区别人给出的一个答案来的灵感。</p>
-<p>这里把153题某网友的解答贴出来（原代码是C++，这里翻译成了java）：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[mid] &lt; nums[high])</span><br><span class="line">                high = mid;</span><br><span class="line">            <span class="keyword">else</span> low = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> nums[low]; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这个写法和上面那个153的写法的区别在于到底是判断nums[mid]和nums[low]还是nums[high]的关系，前一种写法中的 if(nums[low] &lt; nums[high]) return nums[high]; 这一行是必不可少的，但这个写法中没有这一个判断也可以的。(加上也可以，其实有这个判断我个人觉得是更好理解和记忆的。)</p>
-<p>下面给出判断154的另一种解法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[low] &lt; nums[high]) <span class="keyword">return</span> nums[low]; </span><br><span class="line">            <span class="keyword">int</span> mid = low + ((high - low) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt; nums[low]) &#123;</span><br><span class="line">                low = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &lt; nums[low])&#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//if(mid == low) return Math.min(nums[mid], nums[high]);</span></span><br><span class="line">                low++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[low];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/01/08/Binary-Search/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -419,7 +373,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-20 13:03:14" itemprop="dateModified" datetime="2020-01-20T13:03:14-05:00">2020-01-20</time>
+                <time title="Modified: 2020-01-29 19:52:31" itemprop="dateModified" datetime="2020-01-29T19:52:31-05:00">2020-01-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -445,36 +399,14 @@
 
       
           <p>The class of java.util.Arrays contain various methods for manipulating arrays. This article introduces the most commonly used methods in this class. </p>
-<h3 id="asList"><a href="#asList" class="headerlink" title="asList( )"></a>asList( )</h3><p>This method acts as a bridge between array-based and collection-based  APIs in combination with Collection.toArray( ).</p>
-<h3 id="binarySearch"><a href="#binarySearch" class="headerlink" title="binarySearch( )"></a>binarySearch( )</h3><p>binarySearch: searches the specifies value of the array using the binary search algorithm. <strong>The array must be sorted.</strong></p>
-<p>return value type: int - the index of the array</p>
-<p>Two main ways to use this method:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">binarySearch(arr, key) &#x2F;&#x2F; 1</span><br><span class="line">binarySearch(arr, int fromIndex, int toIndex) &#x2F;&#x2F; 2</span><br></pre></td></tr></table></figure>
-
-<p>Note: we can also use a comparator in this method. </p>
-<h3 id="copyOf"><a href="#copyOf" class="headerlink" title="copyOf( )"></a>copyOf( )</h3><p>Usage:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">copyOf(arr, int new Length)</span><br></pre></td></tr></table></figure>
-
-<p>If the new Length is smaller than the length of arr, then this method will return the first Length objects of the arr. Below is an example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int[] a &#x3D; &#123;12, 32, 54, 232, 1212&#125;;</span><br><span class="line">int[] b &#x3D; Arrays.copyOf(a, 3); &#x2F;&#x2F; b is [12, 32, 54]</span><br></pre></td></tr></table></figure>
-
-<h3 id="copyOfRange"><a href="#copyOfRange" class="headerlink" title="copyOfRange( )"></a>copyOfRange( )</h3><p>Usage:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">copyOfRange(arr, int fromIndex, int toIndex)</span><br></pre></td></tr></table></figure>
-
-<h3 id="equals-amp-deepEquals"><a href="#equals-amp-deepEquals" class="headerlink" title="equals( ) &amp; deepEquals( )"></a>equals( ) &amp; deepEquals( )</h3><p>Usage:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">equals(arr1, arr2)</span><br><span class="line">deepEquals(arr1, arr2)</span><br></pre></td></tr></table></figure>
-
-<p>The differences between the two methods: we can only use <code>equals(arr1, arr2)</code> if the arr1 and arr1 are one-dimensional. We can use <code>deepEquals(arr1, arr2)</code> if the array is multi-dimensional.</p>
-<h3 id="fill"><a href="#fill" class="headerlink" title="fill( )"></a>fill( )</h3><p>This method assigns the value to each element of the array.</p>
-<p>Usage:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fill(arr, val)</span><br><span class="line">fill(arr, int fromIndex, int toIndex, val)</span><br></pre></td></tr></table></figure>
-
-<h3 id="sort"><a href="#sort" class="headerlink" title="sort( )"></a>sort( )</h3><p>Usage:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sort(arr)</span><br><span class="line">sort(arr, int fromIndex, int toIndex)</span><br><span class="line">sort(arr, Comparator&lt;&gt;())</span><br><span class="line">sort(arr, int fromIndex, int toIndex, Comparator&lt;&gt; c)</span><br></pre></td></tr></table></figure>
-
-<h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h3><p>This method returns a string representation of the array.</p>
-<p>Usage:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">toString(arr)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/25/Methods-of-java-util-Arrays-class/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -516,10 +448,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-12-24 00:28:56 / Modified: 00:58:26" itemprop="dateCreated datePublished" datetime="2019-12-24T00:28:56-05:00">2019-12-24</time>
+              <time title="Created: 2019-12-24 00:28:56" itemprop="dateCreated datePublished" datetime="2019-12-24T00:28:56-05:00">2019-12-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-29 19:51:47" itemprop="dateModified" datetime="2020-01-29T19:51:47-05:00">2020-01-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -544,16 +482,14 @@
 
       
           <p><strong>霍夫曼压缩编码</strong>考察了文本中有多少个不同字符，并考察每个字符出现的频率，根据频率的不同，选择不同长度的编码。</p>
-<p>举例说明：</p>
-<p>假设有一个包含1000个字符的文件，每个字符占1个byte（1byte=8bits），存储这1000个字符就一共需要8000bits，那有没有更加节省空间的存储方式呢？假设我们通过统计分析发现，这1000个字符中只包含6种不同字符，假设它们分别是a、b、c、d、e、f。而3个二进制位（bit）就可以表示8个不同的字符，所以，为了尽量减少存储空间，每个字符我们用3个二进制位来表示。那存储这1000个字符只需要3000bits就可以了，比原来的存储方式节省了很多空间。不过，还有没有更加节省空间的存储方式呢？</p>
-<p>此时可以用霍夫曼编码。霍夫曼编码是一种十分有效的编码方法，广泛用于数据压缩中，其压缩率通常在20%～90%之间。霍夫曼编码不仅会考察文本中有多少个不同字符，还会考察每个字符出现的频率，根据频率的不同，选择不同长度的编码。霍夫曼编码试图用这种不等长的编码方法，来进一步增加压缩的效率。如何给不同频率的字符选择不同长度的编码呢？<strong>根据贪心的思想，我们可以把出现频率比较多的字符，用稍微短一些的编码；出现频率比较少的字符，用稍微长一些的编码</strong>。对于等长的编码来说，我们解压缩起来很简单。比如刚才那个例子中，我们用3个bit表示一个字符。在解压缩的时候，我们每次从文本中读取3位二进制码，然后翻译成对应的字符。但是，霍夫曼编码是不等长的，每次应该读取1位还是2位、3位等等来解压缩呢？这个问题就导致霍夫曼编码解压缩起来比较复杂。为了避免解压缩过程中的歧义，霍夫曼编码要求<strong>各个字符的编码之间，不会出现某个编码是另一个编码前缀的情况</strong>。</p>
-<p>问题：如何根据频率的不同来进行编码呢？</p>
-<p>做法：把每一个字符看作一个节点，并且把其对应着的频率放在优先级队列中。</p>
-<p>我们把每个字符看作一个节点，并且辅带着把频率放到优先级队列中。我们从队列中取出频率最小的两个节点A、B，然后新建一个节点C，把频率设置为两个节点的频率之和，并把这个新节点C作为节点A、B的父节点。最后再把C节点放入到优先级队列中。重复这个过程，直到队列中没有数据。</p>
-<p><img src="https://res.cloudinary.com/dq4ytg1fv/image/upload/v1577166722/Huffman_e82iig.jpg" alt="Huffman"></p>
-<p>现在，我们给每一条边加上画一个权值，指向左子节点的边我们统统标记为0，指向右子节点的边，我们统统标记为1，那从根节点到叶节点的路径就是叶节点对应字符的霍夫曼编码。</p>
-<p><img src="https://res.cloudinary.com/dq4ytg1fv/image/upload/v1577166854/Encoding_pzcsxg.jpg" alt="Huffman Encoding"></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/24/Huffman-Encoding/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -603,7 +539,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-23 02:06:51" itemprop="dateModified" datetime="2019-12-23T02:06:51-05:00">2019-12-23</time>
+                <time title="Modified: 2020-01-29 19:51:34" itemprop="dateModified" datetime="2020-01-29T19:51:34-05:00">2020-01-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -636,78 +572,14 @@
 <li>帖子ID</li>
 <li>订单ID</li>
 </ul>
-<h4 id="需求-Needs"><a href="#需求-Needs" class="headerlink" title="需求(Needs)"></a>需求(Needs)</h4><p>这个ID往往会作为数据库主键，所以需要保证全局唯一。数据库会在这个字段上建立聚集索引(Clustered Index，参考 MySQL InnoDB)，即该字段会影响各条数据再物理存储上的顺序。</p>
-<p>ID还要尽可能短，节省内存，让数据库索引效率更高。基本上64位整数能够满足绝大多数的场景，但是如果能做到比64位更短那就更好了。需要根据具体业务进行分析，预估出ID的最大值，这个最大值通常比64位整数的上限小很多，于是我们可以用更少的bit表示这个ID。</p>
-<p>查询的时候，往往有分页或者排序的需求，所以需要给每条数据添加一个时间字段，并在其上建立普通索引(Secondary Index)。但是普通索引的访问效率比聚集索引慢，如果能够让ID按照时间粗略有序，则可以省去这个时间字段。为什么不是按照时间精确有序呢？因为按照时间精确有序是做不到的，除非用一个单机算法，在分布式场景下做到精确有序性能一般很差。<br>这就引出了ID生成的三大核心需求：</p>
-<ul>
-<li>全局唯一(unique)</li>
-<li>按照时间粗略有序(sortable by time)</li>
-<li>尽可能短</li>
-</ul>
-<h4 id="一些方案"><a href="#一些方案" class="headerlink" title="一些方案"></a>一些方案</h4><h5 id="Generate-IDs-in-web-application"><a href="#Generate-IDs-in-web-application" class="headerlink" title="Generate IDs in web application"></a>Generate IDs in web application</h5><p>举例，MongoDB对每个document都会自动生成一个ObjectID。实际上它用的是一种UUID算法，生成的ObjectId占12个字节，由以下几个部分组成，</p>
-<ul>
-<li>4个字节表示的Unix timestamp,</li>
-<li>3个字节表示的机器的ID</li>
-<li>2个字节表示的进程ID</li>
-<li>3个字节表示的计数器<br>UUID是一类算法的统称，具体有不同的实现。UUID的有点是每台机器可以独立产生ID，理论上保证不会重复，所以天然是分布式的，缺点是生成的ID太长，不仅占用内存，而且索引查询效率低。</li>
-</ul>
-<p>注：GUID和UUID的区别</p>
-<blockquote>
-<p>A Globally Unique Identifier (GUID) is an identifier designed to be a unique reference.  GUIDs are commonly 128-bit numbers represented as several sequences of hex digits.  A Universally Unique Identifier (UUID) actually refers to one particular variant of a GUID, which has several versions; that means UUIDs are a subset of GUIDs, albeit a very large one.</p>
-</blockquote>
-<p>这种方法的好处和坏处（摘自ins技术博客）如下：</p>
-<p>Pros:</p>
-<ul>
-<li>Each application thread generates IDs independently, minimizing points of - failure and contention for ID generation</li>
-<li>If you use a timestamp as the first component of the ID, the IDs remain time-sortable.</li>
-</ul>
-<p>Cons:</p>
-<ul>
-<li>Generally requires more storage space (96 bits or higher) to make reasonable uniqueness guarantees.</li>
-<li>Some UUID types are completely random and have no natural sort.</li>
-</ul>
-<h5 id="Generate-IDs-through-dedicated-service"><a href="#Generate-IDs-through-dedicated-service" class="headerlink" title="Generate IDs through dedicated service"></a>Generate IDs through dedicated service</h5><p>比如 Twitter 有个成熟的开源项目，就是专门生成ID的，Twitter Snowflake 。Snowflake的核心算法如下：<br><img src="https://img-blog.csdnimg.cn/20191218133845360.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xpYW5nX0RK,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>其最高位不用，永远为0，其余三组bit占位均可浮动，看具体的业务需求而定。默认情况下41bit的时间戳可以支持该算法使用到2082年，10bit的工作机器id可以支持1023台机器，序列号支持1毫秒产生4095个自增序列id。</p>
-<p>Pros:</p>
-<ul>
-<li>Snowflake IDs are 64-bits, half the size of a UUID<br>Can use time as first component and remain sortable</li>
-<li>Distributed system that can survive nodes dying</li>
-</ul>
-<p>Cons:</p>
-<ul>
-<li>Would introduce additional complexity and more ‘moving parts’ (ZooKeeper, Snowflake servers) into our architecture（因为Snowflake用到了Apache ZooKeeper来协调各个节点，然后产生64位的唯一的ID）</li>
-</ul>
-<h5 id="DB-Ticket-Servers"><a href="#DB-Ticket-Servers" class="headerlink" title="DB Ticket Servers"></a>DB Ticket Servers</h5><p>举例，flickr（美国的一个图片网站）。<br>这里贴上他们的中英版本的技术博客解释，可以对照看一下，解释地很详细了。</p>
-<p><a href="https://code.flickr.net/2010/02/08/ticket-servers-distributed-unique-primary-keys-on-the-cheap/" target="_blank" rel="noopener">英文技术博客</a><br><a href="https://blog.csdn.net/wangzhen199009/article/details/38761575" target="_blank" rel="noopener">中文翻译</a></p>
-<p>简单来说就是用多台MySQL服务器，组成一个高性能的分布式发号器呢？ 怎么做到这点？<br>假设用8台MySQL服务器协同工作，第一台MySQL初始值是1，每次自增8，第二台MySQL初始值是2，每次自增8，依次类推。前面用一个 round-robin load balancer 挡着，每来一个请求，由 round-robin balancer 随机地将请求发给8台MySQL中的任意一个，然后返回一个ID。<br>Flickr就是这么做的，仅仅使用了两台MySQL服务器（一个针对奇数处理，一个针对偶数处理）。</p>
-<p>Pros:</p>
-<ul>
-<li>DBs are well understood and have pretty predictable scaling factors</li>
-</ul>
-<p>Cons:</p>
-<ul>
-<li>Can eventually become a write bottleneck (though Flickr reports that, even at huge scale, it’s not an issue).</li>
-<li>An additional couple of machines (or EC2 instances) to admin</li>
-<li>If using a single DB, becomes single point of failure. If using multiple DBs, can no longer guarantee that they are sortable over time.</li>
-</ul>
-<h5 id="INS团队用的方案"><a href="#INS团队用的方案" class="headerlink" title="INS团队用的方案"></a>INS团队用的方案</h5><p>其实和Twitter比较像，但不需要用zookeeper来协调各个节点。它用了41位表示时间戳，13位表示shard Id(一个shard Id对应一台PostgreSQL机器), 最低10位表示自增ID。</p>
-<p>举个例子来说明下他们的方案：</p>
-<p>现在是2011年9月9日下午5点，计算开始时间是2011年1月1日，那到现在有1387263000毫秒。那么id就是如下的数字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id &#x3D; 1387263000 &lt;&lt;(64-41)</span><br></pre></td></tr></table></figure>
-<p>然后，我们根据user id进行切片（shard），有2000个shards，如果现在我们的user id是31341，对其进行2000去模，得到1314。（31341 = 1314（mod 2000））它这个user对应的shard id就是如下的数字：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shard id&#x3D; 1341 &lt;&lt;(64-41-13)</span><br></pre></td></tr></table></figure>
-<p>最后考虑自增序列id，假设现在的自增序列值是5001，那我们对其取1024的模等于7</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto-increment id &#x3D; 7</span><br></pre></td></tr></table></figure>
-
-<p>那针对这个例子，这个唯一的id就是：<br>00000000001010010101011111111010000011000（41位，对应1387263000） 0001010010010（13位，对应1341） 0000000111（10位，对应7）</p>
-<p>下面贴上参考的资料，都写得很详细，本文只是在这些资料基础上进行参考归纳。有空可以全部看一遍（尤其是前三条）。</p>
-<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ol>
-<li><a href="https://soulmachine.gitbooks.io/system-design/cn/" target="_blank" rel="noopener">如何设计一个分布式ID生成器(Distributed ID Generator)，并保证ID按时间粗略有序</a></li>
-<li><a href="https://instagram-engineering.com/sharding-ids-at-instagram-1cf5a71e5a5c" target="_blank" rel="noopener">Sharding &amp; IDs at Instagram</a></li>
-<li><a href="https://code.flickr.net/2010/02/08/ticket-servers-distributed-unique-primary-keys-on-the-cheap/" target="_blank" rel="noopener">Ticket Servers: Distributed Unique Primary Keys on the Cheap</a></li>
-<li><a href="https://blog.csdn.net/wangzhen199009/article/details/38761575" target="_blank" rel="noopener">Ticket 服务: 一种经济的分布式唯一主键生成方案</a></li>
-<li><a href="https://www.quora.com/What-is-the-difference-between-UUID-and-GUID" target="_blank" rel="noopener">Quaro: What is the difference between UUID and GUID?</a></li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/18/Design%20A%20Distributed%20Random%20ID%20Generator/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -757,7 +629,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-25 12:16:37" itemprop="dateModified" datetime="2019-12-25T12:16:37-05:00">2019-12-25</time>
+                <time title="Modified: 2020-01-29 19:51:54" itemprop="dateModified" datetime="2020-01-29T19:51:54-05:00">2020-01-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -783,25 +655,14 @@
 
       
           <p>在做leetcode的题目的时候，发现了有人用for(E e)去遍历数组的值，但是这种方法在经过我试验后却并不如for(int i = 0; i &lt; len; i++) arr[i]快，于是就研究了一下for循环和for each的差别，顺便复习了一下java中容器的知识。所以这篇文章先理清一些关于Java中容器的知识，然后再分析for each和for循环的差别。</p>
-<h5 id="java中为什么会有容器的存在？"><a href="#java中为什么会有容器的存在？" class="headerlink" title="java中为什么会有容器的存在？"></a>java中为什么会有容器的存在？</h5><p>容器的主要作用还是用来保存对象，但是数组保存对象限制比较多，比如数组是固定尺寸的，添加和删除元素都会比较麻烦，而且数组只能保存基本数据类型，所以引入容器的概念。</p>
-<h5 id="容器归纳"><a href="#容器归纳" class="headerlink" title="容器归纳"></a>容器归纳</h5><p>java中的容器分为collection和map两类。而Collection又分Set, List, Queue。具体可以见下图。值得提一句，Collection的父类是Iterable，而Iterable定义了forEach, iterator()的方法。</p>
- <img src="https://img-blog.csdnimg.cn/20191217140555366.png" width = "570" height = "380" alt="collection归纳" align=center/>
-
-<p>容器中只能存放引用数据类型，而不能存放基本数据类型。<strong>为什么呢？</strong> 在某论坛上看到有人给出这样的解释，个人觉得解释挺到位，就直接复制过来了：</p>
-<blockquote>
-<p>首先，集合的存在就是为了方便对多个对象的操作才出现的，集合是存储对象最常用的一种方式，也就是说，集合的从有到无都是因为对象，人们发现要保存多个对象很麻烦，于是便发明了集合，集合是依赖对象而生的，所以就对基本数据类型”不感兴趣”，但是，现在基本数据类型都有了其对应的封装的对象，而且有了自动拆箱和装箱功能，基本数据类型和其对应对象之间的转换变得很方便，想把基本数据类型存入集合中，直接存就可以了，系统会自动将其装箱成封装类。然后加入集合当中</p>
-</blockquote>
-<p>了解了一些容器相关的知识后，回到问题：<strong>for each和for 循环谁快谁慢？</strong></p>
-<p>这里要回顾下数组这个数据结构了。数据是用连续的内存空间来存储对象，这意味着什么？意味着可以通过寻址地址公式根据下表来随机访问(random access)元素，这个操作的时间复杂度为O(1)，而链表搜寻元素要traverse the whole list。在不涉及random access的时候，for each比较快，而涉及random access的时候，就不一定了，看一些实验结果，数据量大的时候，还是for循环略快。Random access会涉及到最基本的数组和基于数组的容器ArrayList，所以碰到这两种数据结构的时候，用for循环或者for each都行。而对于LinkedList， 用for each会明显快很多。</p>
-<p><strong>网络参考资料</strong></p>
-<ol>
-<li><a href="https://blog.csdn.net/zm13007310400/article/details/71256507" target="_blank" rel="noopener">Java集合不能存放基本数据类型，只存放对象的引用</a></li>
-<li><a href="https://blog.csdn.net/xuemengrui12/article/details/79997036" target="_blank" rel="noopener">java容器类详解</a></li>
-<li><a href="https://www.jianshu.com/p/058604de572e" target="_blank" rel="noopener">java中的容器</a></li>
-<li><a href="http://bbs.itheima.com/thread-110254-1-1.html" target="_blank" rel="noopener">java中的集合接口为什么不能存放基本数据类型?</a></li>
-<li><a href="https://www.geeksforgeeks.org/iterator-vs-foreach-in-java/" target="_blank" rel="noopener">Iterator vs Foreach In Java</a></li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/17/Java-for-loop-vs-forEach/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -851,7 +712,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-08 18:42:26" itemprop="dateModified" datetime="2020-01-08T18:42:26-05:00">2020-01-08</time>
+                <time title="Modified: 2020-01-29 19:52:25" itemprop="dateModified" datetime="2020-01-29T19:52:25-05:00">2020-01-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -876,10 +737,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>前阵子听了一个Ted Talk，围绕着大概是找寻人生的意义这个话题。具体内容我大多都忘记了，唯独记得住了一点，就是生命中需要一些transcendent moments。这点我印象很深，一方面是因为这个观点很新颖，一方面是因为这个观点很深刻。就在刚刚，我在看一个演唱视频。舞台不是特别大，光线打得很好，所有观众在旁边非常享受地一起跟着唱或者摇摆，我在那一刻突然想到了这个transcendent moments的观点。尽管我不在现场，但是我确确实实感受到对于这些在舞台上的艺人来说，在舞台上的时刻就是他们人生的transcendent moments。那是一种诗意的、浪漫的、含蓄的又直接的表达自己的方式，也是一种深层次的心灵交流的时刻。正因为如此，无数人会被舞台上表演的艺人们感动到。而我，也常常被这些transcendent moments感动到。尽管自己不是那种会在舞台上表演的艺人，但是我也在追求我人生的transcendent moments. That’s important to me. 其实，我想对很多人这点都重要。</p>
-<p>其实，细细回想我走到今天也很不容易。尽管自己不是最出色的那个，一路过来也算没有放弃自己。只是现在，不断告诫自己需要更加努力，因为既然想追求人生的transcendent moments，这必然是不容易的。拿回舞台上的艺人来讲，为了几分钟的完整表演，常常准备很久，熬夜也是常事。</p>
-<p>当然，现在自己还有很多东西做得不够，but I’m still growing. I am grateful for what I have now.</p>
-
+          <p>前阵子听了一个Ted Talk，围绕着大概是找寻人生的意义这个话题。具体内容我大多都忘记了，唯独记得住了一点，就是生命中需要一些transcendent moments。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/03/Life%20Needs%20Transcendent%20Moments/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -929,7 +795,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-25 02:44:23" itemprop="dateModified" datetime="2019-12-25T02:44:23-05:00">2019-12-25</time>
+                <time title="Modified: 2020-01-29 19:52:37" itemprop="dateModified" datetime="2020-01-29T19:52:37-05:00">2020-01-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -955,120 +821,14 @@
 
       
           <h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>Spark中的最基本的数据抽象就是RDD（Resilient Distributed Dataset, 弹性分布式数据集）。传统的MapReduce框架下，中间计算结果需要写入硬盘来防止运行结果丢失，而调用中间结果对硬盘进行读写是比较耗时的。RDD则是一个基于分布式内存的数据抽象，并且提供了很多计算函数。这样的特点使得Spark比MapReduce快很多。</p>
-<h2 id="RDD的定义"><a href="#RDD的定义" class="headerlink" title="RDD的定义"></a>RDD的定义</h2><p>RDD表示<strong>已被分区、不可变的，并能够被并行操作的数据集合</strong></p>
-<p><strong>分区</strong></p>
-<p>分区代表同一个RDD包含的数据被存储在系统的不同节点中，这是它可以被并行处理的前提。</p>
-<p>逻辑上，我们可以认为RDD是一个大的数组，数组的每一个元素代表一个分区。在物理存储中，每个分区指向一个存放在内存或者硬盘中的数据块，这些数据块可以被存放在系统中的不同节点。实际上，RDD只是抽象意义的数据集合，分区内部不会存储具体的数据。</p>
-<p>下图给出RDD的分区逻辑结构：</p>
- <img src="https://img-blog.csdnimg.cn/20190710183100304.png" width = "500" height = "300" alt="RDD的分区逻辑结构" align=center/>
-
-<p>RDD的分区存有数据块的index，通过RDD的ID和分区的index可以唯一确定数据块的编号，来取得相应数据。</p>
-<p>在集群中，各个节点上的数据块会尽可能地放在内存中，内存没有空间才会存入硬盘，这样可以最大化地减少I/O操作。</p>
-<p><strong>不可变性</strong><br>不可变性代表每个一RDD都是可读的，它所包含的分区信息不可以被改变。</p>
-<p><strong>并行操作</strong><br>由于单个RDD的分区特性，使得它天然支持并行操作。</p>
-<h2 id="RDD的结构"><a href="#RDD的结构" class="headerlink" title="RDD的结构"></a>RDD的结构</h2><p>以下是一个RDD的简易结构示意图：</p>
- <img src="https://img-blog.csdnimg.cn/20190711162627500.png" width = "350" height = "500" alt="RDD的结构简单示意图" align=center/>
-
-<p>SparkContext是所有Spark功能的入口，它代表了与Spark节点的连接，可以用来创建RDD对象以及在节点中的广播变量等。一个线程只有一个SparkContext。</p>
-<p>SparkConf则是一些参数配置信息。</p>
-<p>Partitioner代表了RDD中数据的逻辑结构，每个Partition会映射到某个节点或硬盘的一个数据块。Partitioner决定了RDD的分区方式。有两种主流分区方式：Hash partitioner、Range partitioner。Hash是对数据的Key进行散列分区，Range则是按照Key的排序进行均匀分区。也可以创建自定义的Partitioner。</p>
-<p>Dependencies叫做依赖关系。Spark不需要将每个中间计算结果进行数据复制以防丢失。因为每一步产生的RDD里都会存储它的依赖关系，即它是通过哪个RDD经过哪个转换得到的。Spark支持两种依赖关系：窄依赖（Narrow Dependency）和宽依赖（Wide Dependency）。</p>
-<p>窄依赖就是父RDD的分区可以一一对应到子RDD的分区，宽依赖就是父RDD的每个分区可以被多个子RDD的分区使用。</p>
-<p><strong>窄依赖</strong></p>
- <img src="https://img-blog.csdnimg.cn/20190711164944974.png" width = "550" height = "300" alt="窄依赖" align=center/>
-
-<p><strong>宽依赖</strong></p>
- <img src="https://img-blog.csdnimg.cn/20190711165104265.png" width = "550" height = "300" alt="宽依赖" align=center/>
-
-<p>窄依赖允许子RDD的每个分区可以被并行处理，而宽依赖则必须等父RDD的所有分区都被计算好才能开始处理。</p>
-<p>窄依赖可以支持在同一个节点上链式执行多条命令，如在map下可接着执行filter。并且窄依赖的失败恢复更有效。但是如果一个RDD的依赖链比较长，且中间有多个RDD出现故障的话，进行恢复会很耗时。<strong>检查点</strong>（Checkpoint）可以优化这种情况下的数据恢复。检查点机制指在连续的transaction列表中记录某几个transaction后数据的内容，从而加快数据恢复。</p>
-<p>在计算过程中，对于一些计算过程比较耗时的RDD，可以将它缓存到硬盘或HDFS中，标记这个RDD有被检查点处理过，并且清空它的所有依赖关系。同时，给它新建一个依赖于CheckpointRDD的依赖关系，CheckpointRDD可以用来从硬盘中读取RDD和生成新的分区信息。当某个子RDD需要错误恢复时，回溯至该RDD，发现它被检查点记录过，就可以直接到硬盘中读取这个RDD，不用再向前回溯计算。</p>
-<p>存储级别（Storage Level）是一个用来记录RDD持久化时的存储级别。在后面4.4节中会有更进一步的介绍。</p>
-<h2 id="RDD编程-示例均用Scala编写"><a href="#RDD编程-示例均用Scala编写" class="headerlink" title="RDD编程(示例均用Scala编写)"></a>RDD编程(示例均用Scala编写)</h2><h3 id="创建RDD"><a href="#创建RDD" class="headerlink" title="创建RDD"></a>创建RDD</h3><p>有两种创建RDD的方式：</p>
-<ol>
-<li>读取外部数据集</li>
-<li>对一个集合进行并行化，即把已有的一个集合传给SparkContext的parallelize()方法。</li>
-</ol>
-<p>一、 读取外部数据集</p>
-<p>Scala中的textFile()方法:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val lines &#x3D; sc.textFile(&quot;&#x2F;path&#x2F;README.md&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>二、对一个集合并行化：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val lines &#x3D; sc.parallelize(List(&quot;pandas&quot;,&quot;i like pandas&quot;))</span><br></pre></td></tr></table></figure>
-
-<h3 id="RDD操作"><a href="#RDD操作" class="headerlink" title="RDD操作"></a>RDD操作</h3><p>RDD有两种数据操作：转换操作（Transformation）和动作操作（Action）。</p>
-<p>转换操作的结果是返回一个新的RDD，而动作操作是返回一个结果，在返回结果的时候会触发实际的计算。简单来说，可以通过返回值类型来判断是转换操作还是动作操作。转换操作返回的是RDD，动作操作返回的是其他的数据类型。</p>
-<h4 id="转化操作"><a href="#转化操作" class="headerlink" title="转化操作"></a>转化操作</h4><p>转换操作是得到新RDD的操作，后面4.3节会提到，转化出的RDD是惰性求值的，只有在动作操作中用到这些RDD时会对其进行计算。</p>
-<p><strong>map转换操作</strong></p>
-<p>map()接收一个函数，然后把函数应用于RDD中的每个元素，将函数的返回结果作为新生成的RDD中对应元素的值。</p>
-<p>在spark-shell运行的例子：</p>
- <img src="https://img-blog.csdnimg.cn/20190715110653266.png" width = "600" height = "100" alt="map函数" align=center/>
-
-<p><strong>flatMap转换操作</strong></p>
-<p>flatMap()将函数应用于RDD中的每个元素，将返回的迭代器的所有内容构成新的RDD。</p>
-<p>在spark-shell运行的例子：</p>
- <img src="https://img-blog.csdnimg.cn/20190715110925379.png" width = "600" height = "100" alt="flatMap函数" align=center/>
-
-<p><strong>map和flatMap的区别</strong></p>
-<p>map</p>
- <img src="https://img-blog.csdnimg.cn/20190715112010972.png" width = "700" height = "300" alt="map和flatMap的区别" align=center/>
-
-<p>flatMap</p>
- <img src="https://img-blog.csdnimg.cn/20190715112037364.png" width = "700" height = "300" alt="flatMap" align=center/>
-
-<p><strong>filter转换操作</strong></p>
-<p>filter()返回一个由通过传给filter()的函数的元素组成的RDD。</p>
-<p>在spark-shell运行的例子：</p>
- <img src="https://img-blog.csdnimg.cn/20190715113826715.png" width = "700" height = "100" alt="filter函数" align=center/>
-
-<p>注：collect()函数是一个动作操作，会以数组形式返回RDD中的所有元素。</p>
-<p><strong>distinct转换操作</strong></p>
-<p>distinct()函数的作用是去重。</p>
-<p>在spark-shell运行的例子：</p>
- <img src="https://img-blog.csdnimg.cn/20190715114723152.png" width = "700" height = "100" alt="distinct函数" align=center/>
-
-<h4 id="动作操作"><a href="#动作操作" class="headerlink" title="动作操作"></a>动作操作</h4><p>前面的例子中用到的first()、collect(）都是动作操作。之前提过，collect会以数组形式返回RDD的所有元素。值得注意的是，collect操作只有在数组所含的数据量较小的时候使用，因为所有的数据都会载到程序的内存中，如果数据量较大，会占用大量JVM内存。</p>
-<p>其他常用动作操作还有count()、reduce()、countByKey等。</p>
-<p><strong>reduce动作操作</strong></p>
-<p>reduce函数是操作两个相同元素类型的RDD数据并返回一个同样类型的新元素。</p>
-<p>以函数+为例，可以用它来对我们的RDD进行累加。使用reduce，可以很方便地算出RDD中所有元素的总和。</p>
-<p>在spark-shell运行的例子：</p>
- <img src="https://img-blog.csdnimg.cn/20190716105415621.png" width = "700" height = "100" alt="reduce函数" align=center/>
-
-<p><strong>count动作操作</strong></p>
-<p>count操作的作用是返回RDD中的所有元素。</p>
-<p>在spark-shell运行的例子：</p>
- <img src="https://img-blog.csdnimg.cn/20190716111147322.png" width = "700" height = "100" alt="count函数" align=center/>
-
-<p><strong>countByKey动作操作</strong></p>
-<p>仅适用于Key-Value pair类型的RDD，返回具有每个Key的计数的&lt;Key, Count&gt;的Map。</p>
-<p>在spark-shell中运行的例子：  </p>
- <img src="https://img-blog.csdnimg.cn/20190716111444666.png" width = "700" height = "100" alt="countByKey函数" align=center/>
-
-<h3 id="惰性求值"><a href="#惰性求值" class="headerlink" title="惰性求值"></a>惰性求值</h3><p>RDD的转换操作都是惰性求值的，这意味着调动动作操作之前Spark不会开始计算。前面提到过，转换操作得到的是一个新的RDD，而动作操作得到的是其他的数据类型。<strong>惰性求值的优势在于可以让Spark的运算更加高效和快速。</strong> 比如，当我们读取一个文件生成了rdd后，又用filter筛选出符合某些要求的元素，最后用first返回第一个元素。由于Spark只是在使用first的时候才开始真正的运算，此时的Spark就可以只扫描第一个匹配的行，不需要读取整个文件。</p>
-<p>总结Spark的计算逻辑：在每次转换操作的时候，使用了新产生的RDD来记录逻辑，这样就把作用在RDD上的计算逻辑串起来，形成一个链条。当对RDD进行动作操作时，Spark会从计算链的最后一个RDD开始，依此从上一个RDD获取数据并执行计算逻辑，最后输出结果。</p>
-<h3 id="持久化（缓存）"><a href="#持久化（缓存）" class="headerlink" title="持久化（缓存）"></a>持久化（缓存）</h3><p>上面提到RDD是惰性求值的，如果对RDD采用动作操作，Spark每次都会重算RDD以及它所有的依赖。如果某个RDD被重复使用的话，每次都从头计算非常低效。因此，可以对多次使用的RDD进行持久化操作。</p>
-<p>persist()和cache()方法支持将RDD的数据缓存至内存或硬盘中。下次使用该RDD时，可以直接读取RDD的结果。前面提到RDD的结构中还包含了Storage Level，指持久化级别。常用的持久化级别有以下几个：</p>
-<ul>
-<li>MEMORY_ONLY：只缓存在内存中。</li>
-<li>MEMORY_AND_DISK：缓存在内存中，空间不够则缓存在硬盘中。</li>
-<li>DISK_ONLY：只缓存在硬盘中。</li>
-</ul>
-<p>注：有时在持久化级别加上“_2”表示把持久化的数据存在两个节点上建立副本。如：MEMORY_ONLY_2。</p>
-<p><strong>persist操作</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val rdd &#x3D; sc.parallelize(List(1,2,3,3))</span><br><span class="line">rdd.persist()</span><br></pre></td></tr></table></figure>
-
-<p>加上存储级别示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val rdd &#x3D; sc.parallelize(List(1,2,3,3))</span><br><span class="line">rdd.persist(rdd.persist(StorageLevel.DISK_ONLY))</span><br></pre></td></tr></table></figure>
-
-<p>注：unpersist()可以删除持久化。</p>
-<p><strong>参考资料：</strong></p>
-<ol>
-<li>《Spark快速大数据分析》</li>
-<li>极客时间课程——《大规模数据处理实战》</li>
-<li><a href="https://blog.csdn.net/mingWar/article/details/79643126" target="_blank" rel="noopener">https://blog.csdn.net/mingWar/article/details/79643126</a></li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/07/16/Spark-RDD/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1152,7 +912,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

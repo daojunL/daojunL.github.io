@@ -46,12 +46,12 @@
   };
 </script>
 
-  <meta name="description" content="背景介绍Spark中的最基本的数据抽象就是RDD（Resilient Distributed Dataset, 弹性分布式数据集）。传统的MapReduce框架下，中间计算结果需要写入硬盘来防止运行结果丢失，而调用中间结果对硬盘进行读写是比较耗时的。RDD则是一个基于分布式内存的数据抽象，并且提供了很多计算函数。这样的特点使得Spark比MapReduce快很多。 RDD的定义RDD表示已被分区、">
+  <meta name="description" content="背景介绍Spark中的最基本的数据抽象就是RDD（Resilient Distributed Dataset, 弹性分布式数据集）。传统的MapReduce框架下，中间计算结果需要写入硬盘来防止运行结果丢失，而调用中间结果对硬盘进行读写是比较耗时的。RDD则是一个基于分布式内存的数据抽象，并且提供了很多计算函数。这样的特点使得Spark比MapReduce快很多。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark RDD">
 <meta property="og:url" content="http://daojunl.github.com/2019/07/16/Spark-RDD/index.html">
 <meta property="og:site_name" content="Daojun Liang">
-<meta property="og:description" content="背景介绍Spark中的最基本的数据抽象就是RDD（Resilient Distributed Dataset, 弹性分布式数据集）。传统的MapReduce框架下，中间计算结果需要写入硬盘来防止运行结果丢失，而调用中间结果对硬盘进行读写是比较耗时的。RDD则是一个基于分布式内存的数据抽象，并且提供了很多计算函数。这样的特点使得Spark比MapReduce快很多。 RDD的定义RDD表示已被分区、">
+<meta property="og:description" content="背景介绍Spark中的最基本的数据抽象就是RDD（Resilient Distributed Dataset, 弹性分布式数据集）。传统的MapReduce框架下，中间计算结果需要写入硬盘来防止运行结果丢失，而调用中间结果对硬盘进行读写是比较耗时的。RDD则是一个基于分布式内存的数据抽象，并且提供了很多计算函数。这样的特点使得Spark比MapReduce快很多。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190710183100304.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190711162627500.png">
@@ -67,7 +67,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190716111147322.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190716111444666.png">
 <meta property="article:published_time" content="2019-07-16T14:19:27.000Z">
-<meta property="article:modified_time" content="2019-12-25T07:44:23.214Z">
+<meta property="article:modified_time" content="2020-01-30T00:52:37.450Z">
 <meta property="article:author" content="Daojun Liang">
 <meta property="article:tag" content="Spark">
 <meta name="twitter:card" content="summary">
@@ -231,7 +231,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-25 02:44:23" itemprop="dateModified" datetime="2019-12-25T02:44:23-05:00">2019-12-25</time>
+                <time title="Modified: 2020-01-29 19:52:37" itemprop="dateModified" datetime="2020-01-29T19:52:37-05:00">2020-01-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -257,6 +257,8 @@
 
       
         <h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>Spark中的最基本的数据抽象就是RDD（Resilient Distributed Dataset, 弹性分布式数据集）。传统的MapReduce框架下，中间计算结果需要写入硬盘来防止运行结果丢失，而调用中间结果对硬盘进行读写是比较耗时的。RDD则是一个基于分布式内存的数据抽象，并且提供了很多计算函数。这样的特点使得Spark比MapReduce快很多。</p>
+<a id="more"></a>
+
 <h2 id="RDD的定义"><a href="#RDD的定义" class="headerlink" title="RDD的定义"></a>RDD的定义</h2><p>RDD表示<strong>已被分区、不可变的，并能够被并行操作的数据集合</strong></p>
 <p><strong>分区</strong></p>
 <p>分区代表同一个RDD包含的数据被存储在系统的不同节点中，这是它可以被并行处理的前提。</p>
@@ -467,7 +469,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
