@@ -55,7 +55,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191217140555366.png">
 <meta property="article:published_time" content="2019-12-17T16:46:01.000Z">
-<meta property="article:modified_time" content="2020-03-03T16:44:20.794Z">
+<meta property="article:modified_time" content="2020-03-12T18:28:09.477Z">
 <meta property="article:author" content="Daojun Liang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20191217140555366.png">
@@ -218,7 +218,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-03 11:44:20" itemprop="dateModified" datetime="2020-03-03T11:44:20-05:00">2020-03-03</time>
+                <time title="Modified: 2020-03-12 14:28:09" itemprop="dateModified" datetime="2020-03-12T14:28:09-04:00">2020-03-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -255,7 +255,7 @@
 <p>首先，集合的存在就是为了方便对多个对象的操作才出现的，集合是存储对象最常用的一种方式，也就是说，集合的从有到无都是因为对象，人们发现要保存多个对象很麻烦，于是便发明了集合，集合是依赖对象而生的，所以就对基本数据类型”不感兴趣”，但是，现在基本数据类型都有了其对应的封装的对象，而且有了自动拆箱和装箱功能，基本数据类型和其对应对象之间的转换变得很方便，想把基本数据类型存入集合中，直接存就可以了，系统会自动将其装箱成封装类。然后加入集合当中</p>
 </blockquote>
 <p>了解了一些容器相关的知识后，回到问题：<strong>for each和for 循环谁快谁慢？</strong></p>
-<p>这里要回顾下数组这个数据结构了。数据是用连续的内存空间来存储对象，这意味着什么？意味着可以通过寻址地址公式根据下表来随机访问(random access)元素，这个操作的时间复杂度为O(1)，而链表搜寻元素要traverse the whole list。在不涉及random access的时候，for each比较快，而涉及random access的时候，就不一定了，看一些实验结果，数据量大的时候，还是for循环略快。Random access会涉及到最基本的数组和基于数组的容器ArrayList，所以碰到这两种数据结构的时候，用for循环或者for each都行。而对于LinkedList， 用for each会明显快很多。</p>
+<p>这里要回顾下数组这个数据结构了。数组是用连续的内存空间来存储对象，这意味着什么？意味着可以通过寻址地址公式根据下标来随机访问(random access)元素，这个操作的时间复杂度为O(1)，而链表搜寻元素要traverse the whole list。在不涉及random access的时候，for each比较快，而涉及random access的时候，就不一定了，看一些实验结果，数据量大的时候，还是for循环略快。Random access会涉及到最基本的数组和基于数组的容器ArrayList，所以碰到这两种数据结构的时候，用for循环或者for each都行。而对于LinkedList， 用for each会明显快很多。</p>
 <p><strong>网络参考资料</strong></p>
 <ol>
 <li><a href="https://blog.csdn.net/zm13007310400/article/details/71256507" target="_blank" rel="noopener">Java集合不能存放基本数据类型，只存放对象的引用</a></li>
